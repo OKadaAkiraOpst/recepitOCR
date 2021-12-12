@@ -1,0 +1,6 @@
+database.sqlite3
+datebase.sqlite3
+debug.sqlite3
+
+__pycache__/
+sql/
