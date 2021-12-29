@@ -1,9 +1,7 @@
 database.sqlite3
-datebase.sqlite3
 debug.sqlite3
 
 __pycache__/
-sql/
 
 HTML/output/*
 .vscode/settings.json
