@@ -1,0 +1,4 @@
+<tr>
+    <th>$type</th>
+    <th>$amount</th>
+</tr>

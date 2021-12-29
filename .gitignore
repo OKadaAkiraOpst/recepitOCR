@@ -4,3 +4,6 @@ debug.sqlite3
 
 __pycache__/
 sql/
+
+HTML/output/*
+.vscode/settings.json

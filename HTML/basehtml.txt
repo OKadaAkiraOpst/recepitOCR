@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>レシート集計</title>
+    <link rel="stylesheet" href="../css/styles.css?v=1.0">
+</head>
+<body>
+    <h1>レシート集計</h1>
+    <table>
+        <caption>カテゴリ毎の集計</caption>
+        <tr>
+            <th>カテゴリ</th>
+            <th>金額</th>
+        </tr>
+$category_amount_table
+    </table>
+    <canvas id="myPieChart1" height="300" width="300">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <script>
+            var ctx = document.getElementById("myPieChart1");
+            var myPieChart = new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: $category_labels,
+                datasets: [{
+                    backgroundColor: $category_color,
+                    data: $category_amount
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: 'カテゴリ毎の集計'
+                }
+              }
+            });
+            </script>
+    </canvas>
+    <table>
+        <caption>日付毎の集計</caption>
+        <tr>
+            <th>日付</th>
+            <th>金額</th>
+        </tr>
+$date_amount_table
+    </table>
+    <canvas id="myPieChart2" height="300" width="300">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <script>
+            var ctx = document.getElementById("myPieChart2");
+            var myPieChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: $date_labels,
+                datasets: [{
+                    label: "金額",                            // 系列名
+                    data: $date_amount,                 // ★必須 系列Ａのデータ
+                    backgroundColor: "yellow",                  // 棒の塗りつぶし色
+                    borderColor: "red",                         // 棒の枠線の色
+                    borderWidth: 2 
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: '日付毎の集計'
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+              }
+            });
+            </script>
+    </canvas>
+</body>
+</html>
